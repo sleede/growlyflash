@@ -21,7 +21,7 @@ class @Growlyflash
     notice:  'info'
     success: 'success'
 
-  @DISMISS = """<button type="close" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>"""
+  @DISMISS = """<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>"""
 
   _titleize = (s) -> s.replace /^./, (m) -> do m.toUpperCase
 
@@ -60,7 +60,7 @@ class @Growlyflash
     class_list: ->
       list = [].concat(@opts.class)
       add = _add.bind(list)
-      add 'alert', "dismissable"     if @opts.dismiss
+      add 'alert', "dismissible"     if @opts.dismiss
       add 'alert', @opts.type        if @opts.type?
       add 'growlyflash', @opts.align if @opts.align?
       list
