@@ -66,7 +66,7 @@ class @Growlyflash
       list
 
     show: =>
-      @el.toggleClass('in', on)
+      @el.toggleClass('show', on)
 
     close: =>
       @el.fadeOut(=> @el.remove())
