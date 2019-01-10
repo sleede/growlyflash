@@ -32,10 +32,10 @@ class Listener
   constructor: (context) ->
     @stack ?= new Stack()
     @process_static(context)
-    ($ context).on Growlyflash.Listener.EVENTS, (event, xhr) =>
-      if xhr ?= event.data?.xhr
-        source = process_from_header(xhr.getResponseHeader(Growlyflash.Listener.HEADER))
-        @stack.push_only_fresh source
+    ($ context).on Growlyflash.Listener.EVENTS, (event) =>
+      [xhr, status] = event.detail
+      source = process_from_header(xhr.getResponseHeader(Growlyflash.Listener.HEADER))
+      @stack.push_only_fresh source
       return
 
   process_static: (context)->
